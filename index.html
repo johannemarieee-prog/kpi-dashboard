@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KPI Dashboard</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div class="container">
+    <aside class="sidebar">
+      <h2>Company</h2>
+      <nav>
+        <a href="#" class="active">Dashboard</a>
+        <a href="#">Reports</a>
+        <a href="#">Settings</a>
+      </nav>
+    </aside>
+
+    <main class="main-content">
+      <header class="header">
+        <h1>Dashboard</h1>
+        <div class="user-avatar">👤</div>
+      </header>
+
+      <section class="kpi-grid">
+        <div class="kpi-card">
+          <h3>Revenue</h3>
+          <p id="revenue">$0</p>
+        </div>
+        <div class="kpi-card">
+          <h3>Customers</h3>
+          <p id="customers">0</p>
+        </div>
+        <div class="kpi-card">
+          <h3>Conversion Rate</h3>
+          <p id="conversion">0%</p>
+        </div>
+        <div class="kpi-card">
+          <h3>Churn Rate</h3>
+          <p id="churn">0%</p>
+        </div>
+      </section>
+
+      <section class="chart-section">
+        <canvas id="kpiChart"></canvas>
+      </section>
+    </main>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
