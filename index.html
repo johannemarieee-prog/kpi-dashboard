@@ -3,51 +3,107 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>KPI Dashboard</title>
+  <title>CEO Dashboard</title>
   <link rel="stylesheet" href="style.css" />
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
   <div class="container">
     <aside class="sidebar">
-      <h2>Company</h2>
+      <h2>CompanyName</h2>
       <nav>
         <a href="#" class="active">Dashboard</a>
-        <a href="#">Reports</a>
-        <a href="#">Settings</a>
+        <a href="#">Financials</a>
+        <a href="#">Operations</a>
+        <a href="#">Strategy</a>
       </nav>
     </aside>
 
     <main class="main-content">
       <header class="header">
-        <h1>Dashboard</h1>
-        <div class="user-avatar">👤</div>
+        <h1>CEO Dashboard</h1>
+        <div class="controls">
+          <span>Last updated: <span id="lastUpdated">--</span></span>
+          <select id="periodSelect">
+            <option value="7">Last 7 Days</option>
+            <option value="30" selected>Last 30 Days</option>
+            <option value="90">Last 90 Days</option>
+          </select>
+        </div>
       </header>
 
       <section class="kpi-grid">
         <div class="kpi-card">
-          <h3>Revenue</h3>
+          <h3>Total Revenue</h3>
           <p id="revenue">$0</p>
+          <small id="revenueChange">-- vs last period</small>
         </div>
         <div class="kpi-card">
-          <h3>Customers</h3>
-          <p id="customers">0</p>
+          <h3>Profit</h3>
+          <p id="profit">$0</p>
+          <small id="profitChange">--</small>
         </div>
         <div class="kpi-card">
-          <h3>Conversion Rate</h3>
-          <p id="conversion">0%</p>
+          <h3>Expenses</h3>
+          <p id="expenses">$0</p>
+          <small id="expensesChange">--</small>
+        </div>
+        <div class="kpi-card">
+          <h3>Cash Flow</h3>
+          <p id="cashflow">$0</p>
+          <small id="cashflowChange">--</small>
+        </div>
+      </section>
+
+      <section class="kpi-grid">
+        <div class="kpi-card">
+          <h3>New Customers</h3>
+          <p id="newCustomers">0</p>
+          <small id="newCustChange">--</small>
         </div>
         <div class="kpi-card">
           <h3>Churn Rate</h3>
-          <p id="churn">0%</p>
+          <p id="churnRate">0%</p>
+          <small id="churnChange">--</small>
+        </div>
+        <div class="kpi-card">
+          <h3>Customer Satisfaction (NPS)</h3>
+          <p id="csat">0</p>
+          <small id="csatChange">--</small>
+        </div>
+        <div class="kpi-card">
+          <h3>Conversion Rate</h3>
+          <p id="conversionRate">0%</p>
+          <small id="convChange">--</small>
         </div>
       </section>
 
       <section class="chart-section">
-        <canvas id="kpiChart"></canvas>
+        <canvas id="revenueTrendChart"></canvas>
+      </section>
+
+      <section class="chart-section side-by-side">
+        <canvas id="profitVsExpenseChart"></canvas>
+        <canvas id="customerTrendChart"></canvas>
+      </section>
+
+      <section class="alerts">
+        <div class="alert-card good">
+          <h4>On Target</h4>
+          <p>Revenue > Goal</p>
+        </div>
+        <div class="alert-card warning">
+          <h4>Warning</h4>
+          <p>Churn Rate rising</p>
+        </div>
+        <div class="alert-card danger">
+          <h4>Action Needed</h4>
+          <p>Profit margin low</p>
+        </div>
       </section>
     </main>
   </div>
+
   <script src="script.js"></script>
 </body>
 </html>
